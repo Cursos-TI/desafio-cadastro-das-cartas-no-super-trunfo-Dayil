@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // Desafio Super Trunfo - Países [Nível Novato]
 // Tema 1 - Cadastro das Cartas
