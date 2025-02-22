@@ -7,6 +7,7 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
 
+    char estado1, estado2;
     char cod1[4], cod2[4];
     char cidade1[30], cidade2[30];
     double popula1, popula2;
@@ -43,6 +44,10 @@ while (1) {
             printf("==================================\n");
             printf("CADASTRO DA PRIMEIRA CIDADE\n");
 
+            while (getchar() != '\n');  // Limpa o buffer
+            printf("Insira a letra do estado carta: (EX: A)\n");
+            scanf("%c", &estado1);
+
             printf("Insira o código da cidade: (EX: A01)\n");
             scanf("%3s", cod1);
 
@@ -50,6 +55,7 @@ while (1) {
             while (getchar() != '\n');
             fgets(cidade1, sizeof(cidade1), stdin);
             cidade1[strcspn(cidade1, "\n")] = 0;  // Remove o \n
+
             printf("Insira a população da cidade:\n");
             scanf("%lf", &popula1);
 
@@ -70,7 +76,11 @@ while (1) {
             printf("==================================\n");
             printf("CADASTRO DA SEGUNDA CIDADE\n");
 
-            printf("Insira o código da cidade: (EX: A02)\n");
+            while (getchar() != '\n');  // Limpa o buffer
+            printf("Insira a letra do estado carta: (EX: B)\n");
+            scanf("%c", &estado2);
+
+            printf("Insira o código da cidade: (EX: B02)\n");
             scanf("%3s", cod2);
 
             if (strcmp(cod2, cod1) == 0) {
@@ -106,6 +116,7 @@ while (1) {
     } else if (selecao == 2) {
         printf("==================================\n");
         printf("DADOS DA PRIMEIRA CIDADE\n");
+        printf("Estado: %c\n", estado1);
         printf("Código: %s\n", cod1);
         printf("Nome: %s\n", cidade1);
         printf("População: %.3lf\n", popula1);
@@ -115,6 +126,7 @@ while (1) {
 
         printf("==================================\n");
         printf("DADOS DA SEGUNDA CIDADE\n");
+        printf("Estado: %c\n", estado2);
         printf("Código: %s\n", cod2);
         printf("Nome: %s\n", cidade2);
         printf("População: %.3lf\n", popula2);
