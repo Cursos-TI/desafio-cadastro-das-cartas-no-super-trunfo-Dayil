@@ -6,13 +6,13 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
 
-    char cod[4];
-    char cidade[30];
-    double popula;
-    float area;
-    double pib;
-    int pts_turisticos;
-    
+    char cod1[4], cod2[4];
+    char cidade1[30], cidade2[30];
+    double popula1, popula2;
+    float area1, area2;
+    double pib1, pib2;
+    int pts_turisticos1, pts_turisticos2;
+
     int selecao;
 /*
     // Cadastro das Cartas:
@@ -26,61 +26,107 @@ int main() {
     %c: Imprime um único caractere.
     %s: Imprime uma cadeia (string) de caracteres.
 */
-    while (1)
-    {
-        printf("============- Selecionar opção -============\n");
-        printf("Escolha o que deseja:\n");
-        printf("1- Cadastrar Cidade\n");
-        printf("2- Exibir Dados das Cidades\n");
-        printf("3- Fechar\n");
-        printf("Insira a opção desejada: \n");
-        scanf("%d", &selecao);
+while (1) {
+    printf("============- Selecionar opção -============\n");
+    printf("Escolha o que deseja:\n");
+    printf("1- Cadastrar Cidades\n");
+    printf("2- Exibir Dados das Cidades\n");
+    printf("3- Fechar\n");
+    printf("Insira a opção desejada: \n");
+    scanf("%d", &selecao);
 
-        if (selecao == 1) {
+    if (selecao == 1) {
+        int valido = 0;
+
+        while (!valido) {
             printf("==================================\n");
-            printf("CADASTRO DE CIDADE\n");
+            printf("CADASTRO DA PRIMEIRA CIDADE\n");
 
             printf("Insira o código da cidade: (EX: A01)\n");
-            scanf("%3s", cod);
+            scanf("%3s", cod1);
 
             printf("Insira o nome da cidade:\n");
-            //scanf("%29s", &cidade);
-            while (getchar() != '\n');  // Limpa buffer antes da leitura
-            fgets(cidade, sizeof(cidade), stdin);
-            cidade[strcspn(cidade, "\n")] = 0;  // Remove o \n do final (se houver)
-
+            while (getchar() != '\n');
+            fgets(cidade1, sizeof(cidade1), stdin);
+            cidade1[strcspn(cidade1, "\n")] = 0;  // Remove o \n
             printf("Insira a população da cidade:\n");
-            scanf("%lf", &popula);
+            scanf("%lf", &popula1);
 
             printf("Insira a área (km²):\n");
-            scanf("%f", &area);
+            scanf("%f", &area1);
 
             printf("Insira o PIB:\n");
-            scanf("%lf", &pib);
+            scanf("%lf", &pib1);
 
             printf("Insira o número de pontos turísticos:\n");
-            scanf("%d", &pts_turisticos);
+            scanf("%d", &pts_turisticos1);
 
-            printf("Cadastro realizado com sucesso!\n");
-    ///////
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-        }else if(selecao == 2) {
-            printf("==================================\n");
-            printf("DADOS DA CIDADE\n");
-            printf("Código: %s\n", cod);
-            printf("Nome: %s\n", cidade);
-            printf("População: %.3lf\n", popula);
-            printf("Área: %.f km²\n", area);
-            printf("PIB: R$ %.3lf\n", pib);
-            printf("Pontos Turísticos: %d\n", pts_turisticos);
-        }else if(selecao == 3) {
-            printf("Saindo do programa.\n");
-            break;
-        }else {
-            printf("Opção inválida");
+            valido = 1;
         }
+
+        valido = 0;
+        while (!valido) {
+            printf("==================================\n");
+            printf("CADASTRO DA SEGUNDA CIDADE\n");
+
+            printf("Insira o código da cidade: (EX: A02)\n");
+            scanf("%3s", cod2);
+
+            if (strcmp(cod2, cod1) == 0) {
+                printf("Erro. Já existe uma cidade cadastrada com esse código.\n");
+                continue;
+            }
+
+            printf("Insira o nome da cidade:\n");
+            while (getchar() != '\n');
+            fgets(cidade2, sizeof(cidade2), stdin);
+            cidade2[strcspn(cidade2, "\n")] = 0;  // Remove o \n
+            if (strcmp(cidade2, cidade1) == 0) {
+                printf("Erro. Já existe uma cidade cadastrada com esse nome.\n");
+                continue;
+            }
+
+            printf("Insira a população da cidade:\n");
+            scanf("%lf", &popula2);
+
+            printf("Insira a área (km²):\n");
+            scanf("%f", &area2);
+
+            printf("Insira o PIB:\n");
+            scanf("%lf", &pib2);
+
+            printf("Insira o número de pontos turísticos:\n");
+            scanf("%d", &pts_turisticos2);
+
+            printf("Cadastro da segunda cidade realizado com sucesso!\n");
+
+            valido = 1;
+        }
+    } else if (selecao == 2) {
+        printf("==================================\n");
+        printf("DADOS DA PRIMEIRA CIDADE\n");
+        printf("Código: %s\n", cod1);
+        printf("Nome: %s\n", cidade1);
+        printf("População: %.3lf\n", popula1);
+        printf("Área: %.f km²\n", area1);
+        printf("PIB: R$ %.3lf\n", pib1);
+        printf("Pontos Turísticos: %d\n", pts_turisticos1);
+
+        printf("==================================\n");
+        printf("DADOS DA SEGUNDA CIDADE\n");
+        printf("Código: %s\n", cod2);
+        printf("Nome: %s\n", cidade2);
+        printf("População: %.3lf\n", popula2);
+        printf("Área: %.f km²\n", area2);
+        printf("PIB: R$ %.3lf\n", pib2);
+        printf("Pontos Turísticos: %d\n", pts_turisticos2);
+
+    } else if (selecao == 3) {
+        printf("Saindo do programa.\n");
+        break;
+    } else {
+        printf("Opção inválida\n");
     }
-    return 0;
+}
+return 0;
 }
