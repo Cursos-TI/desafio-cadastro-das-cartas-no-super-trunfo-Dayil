@@ -138,8 +138,8 @@ while (1) {
         printf("População: %lu\n", popula1);
         printf("Área: %.2f km²\n", area1);
         printf("PIB: R$ %.2f\n", pib1);
-        printf("Densidade Populacional: %.2f hab/km²\n", densidade1); // Puxa a informação do cálculo da densidade populacional linha 67
-        printf("PIB per capita: R$ %.2f\n", pibpercapita1); // Puxa a informação do cálculo do PIB per capita linha 71
+        printf("Densidade Populacional: %.2f hab/km²\n", densidade1); // Puxa a informação do cálculo da densidade populacional linha 70
+        printf("PIB per capita: R$ %.2f\n", pibpercapita1); // Puxa a informação do cálculo do PIB per capita linha 74
         printf("Pontos Turísticos: %d\n", pts_turisticos1);
         printf("O Super Poder da primeira cidade é de: %.2f \n", SuperPoder1);
 
@@ -151,8 +151,8 @@ while (1) {
         printf("População: %lu\n", popula2);
         printf("Área: %.2f km²\n", area2);
         printf("PIB: R$ %.2f\n", pib2);
-        printf("Densidade Populacional: %.2f hab/km²\n", densidade2); // Puxa a informação do cálculo da densidade populacional linha 110
-        printf("PIB per capita: R$ %.2f\n", pibpercapita2); // Puxa a informação do cálculo do PIB per capita linha 114
+        printf("Densidade Populacional: %.2f hab/km²\n", densidade2); // Puxa a informação do cálculo da densidade populacional linha 117
+        printf("PIB per capita: R$ %.2f\n", pibpercapita2); // Puxa a informação do cálculo do PIB per capita linha 121
         printf("Pontos Turísticos: %d\n", pts_turisticos2);
         printf("O Super Poder da segunda cidade é de: %.2f \n", SuperPoder2);
     }
